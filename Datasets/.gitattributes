@@ -3,3 +3,4 @@ R3_train.zip filter=lfs diff=lfs merge=lfs -text
 R4_train.zip filter=lfs diff=lfs merge=lfs -text
 R5_train.zip filter=lfs diff=lfs merge=lfs -text
 R6_train.zip filter=lfs diff=lfs merge=lfs -text
+R3_test.zip filter=lfs diff=lfs merge=lfs -text
