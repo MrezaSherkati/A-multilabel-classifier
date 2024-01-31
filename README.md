@@ -1,11 +1,13 @@
 # A-multilabel-classifier
 This project was about designing a multilabel classifier on a dataset with high number of features and samples.
 # Dataset charactrisitics
-The dataset availabel to us in this project was broken into 6 different featuresets. The dataset contained 25000 samples. All the 6 featuresets are available in the "Datasets directory".
-
-R1 to R3 featuresets contain a
-
-The labelset contained 19 non-exclusive labels for each data sample and each of these labels can be either 0 or 1 (Binary labels). With this information, this project was a multilabel classification problem where every data sample can have any number of 19 available labels at the same time.
+We were provided with:
+– 25,000 Samples, each with up to 19 classes (multiclass; non-exclusive)
+  • Binary class data in labels_train.csv (25K rows x 19 columns)
+– R1_train.csv through R6_train.csv files containing six different feature sets
+  • One sample per row. Each feature set has 25K rows.
+  • Feature sets 1-3 have 768 features each. Feature sets 4-6 have 1024 features each.
+• Blind test set had 25K samples.
 # Purpose of the project and performance metric
 The purpose of the project was to design a classifier which trains on one of the featuresets and then gets tested on a blind testset. The performance metric which was used for assessing the models was micro average F1-score.
 # Experiment design
