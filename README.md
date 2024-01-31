@@ -1,5 +1,33 @@
 # A-multilabel-classifier
 This project was about designing a multilabel classifier on a dataset with high number of features and samples.
-
 # Dataset charactrisitics
-The dataset availabel to us in this project was broken into 6 different featuresets. The dataset contained 25000 samples. The featuresets are available in the "Datasets directory"
+The dataset availabel to us in this project was broken into 6 different featuresets. The dataset contained 25000 samples. All the 6 featuresets are available in the "Datasets directory".
+R1 to R3 featuresets contain a 
+The labelset contained 19 non-exclusive labels for each data sample and each of these labels can be either 0 or 1 (Binary labels). With this information, this project was a multilabel classification problem where every data sample can have any number of 19 available labels at the same time.
+# Purpose of the project and performance metric
+The purpose of the project was to design a classifier which trains on one of the featuresets and then gets tested on a blind testset. The performance metric which was used for assessing the models was micro average F1-score.
+# Preprocessing steps on dataset
+The following preprocessing steps is performed on the featureset to enable our model to perform better and achieve a higher performance:
+1- Checking for Missing values
+2- Outlier Detection: In order to perform outlier detection, we used the z score method, implemented using SciPy library. The outlier detection and removal only happens on the training set and we didn’t apply outlier removal on the test set in each fold, so that our estimates would not be biased.
+3- Standardizing: We standardized our training subset using the Standardscaler() method from Scikit Learn library.
+4- Principal Component Analysis (PCA): Since our dataset had a high number of features, we decided to use a dimensionality reduction method to extract features from our feature set that best represents the variety in the samples in our dataset. We used the PCA() method from the Scikit Learn library.
+# SVM classifier
+The Machine Learning model chosen for designing this classifier is Support Vector Machine(SVM). SVMs are well known for their ability in handling datasets with high dimensionality. Also SVMs are robust to overfitting since they try to find a decision boundary with the highest margin possible. This margin will make them more robust to overfitting and increases their performance on unseen data.
+# Genetic Algorithm (Hyperparameter tuning)
+SVMs have few hyperparameters which need to be tuned in order to be effective. These hyperparameters are kernel, C, Gamma and etc. In this project, we decided to use Genetic Algorithm for tuning the hyperparameters of the SVM model. Genetic algorithm is widely used for optimization and we used this algorithm as the method for tuning "C" and "kernel" hyperparameters which are the most important ones between all the hyperparameters for SVMs.
+# Optimized model
+For the “kernel” parameter, there are several options: poly, rbf and linear. Also C can be any positive real number. We used Genetic Algorithm with 5 generations and in each generation, 5 individuals to tune the kernel and C parameters for our SVM. We used a brute force approach for trying the “linear” option for kernel. The reason for this was that, Scikit learn library provides a method named LinearSVC() which is a much faster implementation of SVC() method with the value of “linear” as the kernel. So for the sake of higher speed we decided to evaluate the “linear” kernel separately with different values of “C”. We also used the OneVsRestClassifier() method from the same library to make our classifier multilabel.
+In the table below, the best hyperparameters which return the best micro average F1-score is evident for each feature set. In our case, in each fold of the cross validation, GA will find a specific set of hyperparameters. We chose the set of hyperparameters which returned the highest F1 score as the selected hyperparameter values for each feature set.
+
+| Featureset | C | Kernel | PCA | F1-score (micro) | Accuracy |
+| ---------|----------|----------|---------|----------|----------|
+| R1 | 9.74 | "rbf" | 139 | 0.7003 | 0.2642 |
+| R2 | 3.05 | "rbf" | 130 | 0.7514 | 0.3143 |
+| R3 | 11 | "rbf" | 96 | 0.7598 | 0.3180 |
+| R4 | 10.23 | "rbf" | 127 | 0.7114 | 0.2806 |
+| R5 | 7.68 | "rbf" | 103 | 0.7460 | 0.3096 |
+| R6 | 6 | "rbf" | 131 | 0.7497 | 0.2968 |
+# How to run the code
+1- Download your selected featureset(R1 to R6) as your trainingset. Save this file in the same directory where the "" file is stored, or give the full path of the location of the selected featureset in the line where the csv is read.
+2- Run the "" file. 
