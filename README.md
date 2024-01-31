@@ -2,7 +2,9 @@
 This project was about designing a multilabel classifier on a dataset with high number of features and samples.
 # Dataset charactrisitics
 The dataset availabel to us in this project was broken into 6 different featuresets. The dataset contained 25000 samples. All the 6 featuresets are available in the "Datasets directory".
-R1 to R3 featuresets contain a 
+
+R1 to R3 featuresets contain a
+
 The labelset contained 19 non-exclusive labels for each data sample and each of these labels can be either 0 or 1 (Binary labels). With this information, this project was a multilabel classification problem where every data sample can have any number of 19 available labels at the same time.
 # Purpose of the project and performance metric
 The purpose of the project was to design a classifier which trains on one of the featuresets and then gets tested on a blind testset. The performance metric which was used for assessing the models was micro average F1-score.
@@ -20,6 +22,7 @@ The Machine Learning model chosen for designing this classifier is Support Vecto
 SVMs have few hyperparameters which need to be tuned in order to be effective. These hyperparameters are kernel, C, Gamma and etc. In this project, we decided to use Genetic Algorithm for tuning the hyperparameters of the SVM model. Genetic algorithm is widely used for optimization and we used this algorithm as the method for tuning "C" and "kernel" hyperparameters which are the most important ones between all the hyperparameters for SVMs.
 # Optimized model
 For the “kernel” parameter, there are several options: poly, rbf and linear. Also C can be any positive real number. We used Genetic Algorithm with 5 generations and in each generation, 5 individuals to tune the kernel and C parameters for our SVM. We used a brute force approach for trying the “linear” option for kernel. The reason for this was that, Scikit learn library provides a method named LinearSVC() which is a much faster implementation of SVC() method with the value of “linear” as the kernel. So for the sake of higher speed we decided to evaluate the “linear” kernel separately with different values of “C”. We also used the OneVsRestClassifier() method from the same library to make our classifier multilabel.
+
 In the table below, the best hyperparameters which return the best micro average F1-score is evident for each feature set. In our case, in each fold of the cross validation, GA will find a specific set of hyperparameters. We chose the set of hyperparameters which returned the highest F1 score as the selected hyperparameter values for each feature set.
 
 | Featureset | C | Kernel | PCA | F1-score (micro) | Accuracy |
@@ -30,6 +33,7 @@ In the table below, the best hyperparameters which return the best micro average
 | R4 | 10.23 | "rbf" | 127 | 0.7114 | 0.2806 |
 | R5 | 7.68 | "rbf" | 103 | 0.7460 | 0.3096 |
 | R6 | 6 | "rbf" | 131 | 0.7497 | 0.2968 |
+
 As it is evident from the table above, the results for feature set R3, was the highest micro F1-score, so we decided to choose this feature set for our blind test set. Also from this table we can see that the “rbf” kernel performed better for all the feature sets compared to “linear” and “poly”.
 We used the Deap library for implementing Genetic algorithm. Deap is considered to be a popular library for implementing Genetic algorithm. Since the Genetic algorithm is very time consuming, we had to decrease the number of generations and the number of individuals in each generation due to computational limits, but the implemented Genetic algorithm can be easily cinfigured for higher numbers of generations and individuals in each generation. The results showed that the Genetic algorithm is very capable of finding optimal values for hyperparameters. We believe that with increasing the number of generations and the number of individuals in each generation, GA is capable of finding the best values available for the hyperparameters.
 The number of pca components was chosen based on the number of components that represent 95% of variance in the training subset. The number of components for pca in the R3 feature set that represent 95% of variance was between 95 to 100 in each fold.
