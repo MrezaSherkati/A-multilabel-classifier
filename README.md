@@ -42,6 +42,25 @@ The number of pca components was chosen based on the number of components that r
 
 Due to the computational limitation, we let the degree parameter for “poly” kernel and gamma parameter to be the default value.
 
+# Meta Learning
+Meta-learning, also known as "learning to learn," is a machine learning paradigm where a model is trained to perform learning tasks more efficiently or effectively. The key idea behind meta-learning is to expose a model to a variety of learning tasks, enabling it to generalize across tasks and adapt quickly to new, unseen tasks. Meta-learning is particularly beneficial in scenarios where acquiring labeled data for every specific task is impractical or expensive.
+There are several approaches to apply meta learning for a pattern classification method. Bagging and Boosting are among the most popular ones which are widely used in practice. For our implementation, we decided to try bagging and adaboosting as the approach for meta learning. We used BaggingClassifier and AdaBoostClassifier methods from Scikit Learn library to implement our meta learning approach.
+
+| Meta learning approach | Number of base models | F1-score (micro) | Accuracy |
+| ---------|---------|----------|----------|
+| Bagging | 3 | 0.7003 | 0.2642 |
+| Bagging | 5 | 0.7514 | 0.3143 |
+| Bagging | 10 | 0.7598 | 0.3180 |
+| Adaboosting | 3 | 0.7114 | 0.2806 |
+| Adaboosting | 5 | 0.7460 | 0.3096 |
+| Adaboosting | 10 | 0.7497 | 0.2968 |
+
+As it can be seen from the table above, our classification method with bagging as the meta learning approach maintained its performance, but on the other hand, adaboosting downgraded the performance of our model. Also it can be seen that as the number of base models increases, the performance in bagging increases as well.
+
+# Results
+
+
+
 # How to run the code
 1- Download your selected featureset(R1 to R6) as your trainingset. Save this file in the same directory where the "" file is stored, or give the full path of the location of the selected featureset in the line where the csv file is read.  
 2- Run the "" file.  
