@@ -6,12 +6,14 @@ R1 to R3 featuresets contain a
 The labelset contained 19 non-exclusive labels for each data sample and each of these labels can be either 0 or 1 (Binary labels). With this information, this project was a multilabel classification problem where every data sample can have any number of 19 available labels at the same time.
 # Purpose of the project and performance metric
 The purpose of the project was to design a classifier which trains on one of the featuresets and then gets tested on a blind testset. The performance metric which was used for assessing the models was micro average F1-score.
+# Experiment design
+The experiment design phase serves as the foundation for our pattern classification endeavor. In order to make the most out of our dataset, we used 5 fold cross validation for estimating the performance of our model on unseen future data and in each fold, we adopt an 80-20 split in the training subset for training and validation, respectively. We used the KFold() method from Scikit Learn library for creating the different folds for our cross validation setting. Class balancing considerations are also explored to mitigate biases and ensure the robustness of our classifier.
 # Preprocessing steps on dataset
 The following preprocessing steps is performed on the featureset to enable our model to perform better and achieve a higher performance:
-1- Checking for Missing values
-2- Outlier Detection: In order to perform outlier detection, we used the z score method, implemented using SciPy library. The outlier detection and removal only happens on the training set and we didn’t apply outlier removal on the test set in each fold, so that our estimates would not be biased.
-3- Standardizing: We standardized our training subset using the Standardscaler() method from Scikit Learn library.
-4- Principal Component Analysis (PCA): Since our dataset had a high number of features, we decided to use a dimensionality reduction method to extract features from our feature set that best represents the variety in the samples in our dataset. We used the PCA() method from the Scikit Learn library.
+1- Checking for Missing values  
+2- Outlier Detection: In order to perform outlier detection, we used the z score method, implemented using SciPy library. The outlier detection and removal only happens on the training set and we didn’t apply outlier removal on the test set in each fold, so that our estimates would not be biased.  
+3- Standardizing: We standardized our training subset using the Standardscaler() method from Scikit Learn library.  
+4- Principal Component Analysis (PCA): Since our dataset had a high number of features, we decided to use a dimensionality reduction method to extract features from our feature set that best represents the variety in the samples in our dataset. We used the PCA() method from the Scikit Learn library.  
 # SVM classifier
 The Machine Learning model chosen for designing this classifier is Support Vector Machine(SVM). SVMs are well known for their ability in handling datasets with high dimensionality. Also SVMs are robust to overfitting since they try to find a decision boundary with the highest margin possible. This margin will make them more robust to overfitting and increases their performance on unseen data.
 # Genetic Algorithm (Hyperparameter tuning)
