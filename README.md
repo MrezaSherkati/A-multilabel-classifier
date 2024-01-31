@@ -35,10 +35,13 @@ In the table below, the best hyperparameters which return the best micro average
 | R6 | 6 | "rbf" | 131 | 0.7497 | 0.2968 |
 
 As it is evident from the table above, the results for feature set R3, was the highest micro F1-score, so we decided to choose this feature set for our blind test set. Also from this table we can see that the “rbf” kernel performed better for all the feature sets compared to “linear” and “poly”.
+
 We used the Deap library for implementing Genetic algorithm. Deap is considered to be a popular library for implementing Genetic algorithm. Since the Genetic algorithm is very time consuming, we had to decrease the number of generations and the number of individuals in each generation due to computational limits, but the implemented Genetic algorithm can be easily cinfigured for higher numbers of generations and individuals in each generation. The results showed that the Genetic algorithm is very capable of finding optimal values for hyperparameters. We believe that with increasing the number of generations and the number of individuals in each generation, GA is capable of finding the best values available for the hyperparameters.
+
 The number of pca components was chosen based on the number of components that represent 95% of variance in the training subset. The number of components for pca in the R3 feature set that represent 95% of variance was between 95 to 100 in each fold.
+
 Due to the computational limitation, we let the degree parameter for “poly” kernel and gamma parameter to be the default value.
 
 # How to run the code
-1- Download your selected featureset(R1 to R6) as your trainingset. Save this file in the same directory where the "" file is stored, or give the full path of the location of the selected featureset in the line where the csv is read.
-2- Run the "" file. 
+1- Download your selected featureset(R1 to R6) as your trainingset. Save this file in the same directory where the "" file is stored, or give the full path of the location of the selected featureset in the line where the csv is read.  
+2- Run the "" file.  
