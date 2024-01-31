@@ -43,5 +43,5 @@ The number of pca components was chosen based on the number of components that r
 Due to the computational limitation, we let the degree parameter for “poly” kernel and gamma parameter to be the default value.
 
 # How to run the code
-1- Download your selected featureset(R1 to R6) as your trainingset. Save this file in the same directory where the "" file is stored, or give the full path of the location of the selected featureset in the line where the csv is read.  
+1- Download your selected featureset(R1 to R6) as your trainingset. Save this file in the same directory where the "" file is stored, or give the full path of the location of the selected featureset in the line where the csv file is read.  
 2- Run the "" file.  
