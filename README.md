@@ -68,7 +68,12 @@ As it can be seen from the reported estimates above, there is not much differenc
 # The final classifier
 For the final classifier, as we mentioned earlier, we used the following values for hyperparameters and also we decided to use bagging with 5 base models in the structure of our final classifier, since it increases the robustness of the classifier on unseen data.
 
-
+| ---------|----------|
+| Chosen feature set | R3 |
+| Kernel | "rbf" |
+| C | 11 |
+| PCA Components | 96 |
+| Meta learning | Bagging with 5 base models |
 
 We also trained our final model on the whole dataset available to us and used this model to predict the labels for the blind test set.
 
