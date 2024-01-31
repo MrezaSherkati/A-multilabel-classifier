@@ -60,7 +60,9 @@ As it can be seen from the table above, our classification method with bagging a
 # Results
 For estimating the mean and standard deviation of performance of our classifier on the unseen future data and in this problem, the blind test set, as we mentioned earlier, we used 5-fold cross validation. The results are as follows:
 
-
+| | 5 Fold Cross Validation with bagging (5 base models) | 5 Fold Cross Validation without Meta Learning |
+|----------| ---------|---------|
+|Micro F1-score| Mean = 0.7506 , SD = 0.0014| Mean = 0.7528 , SD = 0.0016 |
 
 As it can be seen from the reported estimates above, there is not much difference between the classifier with bagging and without bagging. Also we used 5 base models for the bagging. The reason for choosing 5 base models for our bagging was that it is less computationally heavy compared to 10 base models and has a better performance compared to the 3 base model version.
 # The final classifier
