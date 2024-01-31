@@ -44,6 +44,7 @@ Due to the computational limitation, we let the degree parameter for “poly” 
 
 # Meta Learning
 Meta-learning, also known as "learning to learn," is a machine learning paradigm where a model is trained to perform learning tasks more efficiently or effectively. The key idea behind meta-learning is to expose a model to a variety of learning tasks, enabling it to generalize across tasks and adapt quickly to new, unseen tasks. Meta-learning is particularly beneficial in scenarios where acquiring labeled data for every specific task is impractical or expensive.
+
 There are several approaches to apply meta learning for a pattern classification method. Bagging and Boosting are among the most popular ones which are widely used in practice. For our implementation, we decided to try bagging and adaboosting as the approach for meta learning. We used BaggingClassifier and AdaBoostClassifier methods from Scikit Learn library to implement our meta learning approach.
 
 | Meta learning approach | Number of base models | F1-score (micro) | Accuracy |
@@ -56,11 +57,23 @@ There are several approaches to apply meta learning for a pattern classification
 | Adaboosting | 10 | 0.7497 | 0.2968 |
 
 As it can be seen from the table above, our classification method with bagging as the meta learning approach maintained its performance, but on the other hand, adaboosting downgraded the performance of our model. Also it can be seen that as the number of base models increases, the performance in bagging increases as well.
-
 # Results
+For estimating the mean and standard deviation of performance of our classifier on the unseen future data and in this problem, the blind test set, as we mentioned earlier, we used 5-fold cross validation. The results are as follows:
 
 
 
+As it can be seen from the reported estimates above, there is not much difference between the classifier with bagging and without bagging. Also we used 5 base models for the bagging. The reason for choosing 5 base models for our bagging was that it is less computationally heavy compared to 10 base models and has a better performance compared to the 3 base model version.
+# The final classifier
+For the final classifier, as we mentioned earlier, we used the following values for hyperparameters and also we decided to use bagging with 5 base models in the structure of our final classifier, since it increases the robustness of the classifier on unseen data.
+
+
+
+We also trained our final model on the whole dataset available to us and used this model to predict the labels for the blind test set.
+
+# Results on the blind test set
+| Dataset | F1-score (micro) |
+| ---------|---------|
+| Blind test set | 0.7583 |
 # How to run the code
 1- Download your selected featureset(R1 to R6) as your trainingset. Save this file in the same directory where the "" file is stored, or give the full path of the location of the selected featureset in the line where the csv file is read.  
 2- Run the "" file.  
