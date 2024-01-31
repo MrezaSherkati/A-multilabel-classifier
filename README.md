@@ -13,7 +13,7 @@ The purpose of the project is to design a classifier which trains on one of the 
 # Experiment design
 In order to make the most out of the datasets, 5 fold cross validation has been used for estimating the performance of the designed model on unseen future data and in each fold, an 80-20 split in the training subset is adapted for training and validation, respectively. The KFold() method from Scikit Learn library has been used for creating the different folds for the cross validation setting. Class balancing considerations are also explored to mitigate biases and ensure the robustness of the designed classifier.
 # Preprocessing steps on dataset
-The following preprocessing steps is performed on the feature sets to enable the designed model to perform better and achieve a higher performance:
+The following preprocessing steps is performed on the feature sets to enable the designed model to perform better and achieve a higher performance:  
 1- Checking for Missing values  
 2- Outlier Detection: In order to perform outlier detection, the z score method has been used, implemented using SciPy library. The outlier detection and removal only happens on the training set and it is not applied applied on the test set in each fold, so that the estimates would not be biased.  
 3- Standardizing: The training subset was standardized using the Standardscaler() method from Scikit Learn library.  
