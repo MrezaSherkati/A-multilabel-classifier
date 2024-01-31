@@ -67,7 +67,7 @@ For estimating the mean and standard deviation of performance of our classifier 
 As it can be seen from the reported estimates above, there is not much difference between the classifier with bagging and without bagging. Also we used 5 base models for the bagging. The reason for choosing 5 base models for our bagging was that it is less computationally heavy compared to 10 base models and has a better performance compared to the 3 base model version.
 # The final classifier
 For the final classifier, as we mentioned earlier, we used the following values for hyperparameters and also we decided to use bagging with 5 base models in the structure of our final classifier, since it increases the robustness of the classifier on unseen data.
-
+|||
 | ---------|----------|
 | Chosen feature set | R3 |
 | Kernel | "rbf" |
