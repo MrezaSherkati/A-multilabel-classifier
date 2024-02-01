@@ -87,3 +87,5 @@ The final model was also trained on the whole available dataset and used this mo
 1- Download your selected feature set zip code(R1_train.zip to R6_train.zip) as your training set and extract the csv file from it.  
 2- Save the csv file in the same directory where the code files are stored, or give the full path of the location of the selected feature set in the line where the csv file is read in the source code.  
 3- Run the "Training_No_Meta.py" file for creating a model without Meta learning or Run the "Training_With_Meta.py" file for creating a model with Meta learning. The "Final_classifier.py" file can be used for creating a model, trained on a whole feature set and can be used to predict labels on the "R3_test.csv".
+# Run time
+The process of training this model is computationally heavy due to the large feature sets. Therefore it is recommended to run this code on a machine with high computational resources.
