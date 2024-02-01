@@ -1,6 +1,6 @@
 # A-multilabel-classifier
 This project is about designing a multilabel classifier on a dataset with high number of features and samples.
-# Dataset charactrisitics
+# Dataset charactristics
 The following datasets are provided:  
 – 25K Samples, each with up to 19 classes (multiclass; non-exclusive)  
   • Binary class data in labels_train.csv (25K rows x 19 columns)  
